@@ -27,6 +27,22 @@ class Workout(models.Model):
         app_label = 'octofit_tracker'
 
 class Command(BaseCommand):
+    """
+    Django management command to populate the octofit_db database with test data.
+
+    This command deletes all existing data from the User, Team, Activity, Leaderboard, and Workout models,
+    then creates sample teams, users, activities, leaderboards, and workouts for testing purposes.
+
+    Usage:
+        python manage.py populate_db
+
+    Models affected:
+        - User
+        - Team
+        - Activity
+        - Leaderboard
+        - Workout
+    """
     help = 'Populate the octofit_db database with test data'
 
     def handle(self, *args, **kwargs):
